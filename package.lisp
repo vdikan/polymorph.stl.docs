@@ -8,5 +8,5 @@
                           #:< #:<= #:> #:>=
                           #:max #:min
                           #:+ #:- #:* #:/
-                          #:incf #:decf)
+                          #:incf #:decf #:multf #:divf)
   (:export #:build-docs))

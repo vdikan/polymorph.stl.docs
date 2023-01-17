@@ -9,30 +9,51 @@
   (@polymorph-maths-parametric section))
 
 
-(defsection @polymorph-maths-arithmetics (:title "TODO: Arithmetics")
+(defsection @polymorph-maths-arithmetics (:title "Arithmetics")
 
   (@polymorph-maths-arithmetic-basic section)
   (@polymorph-maths-arithmetic-updating section))
 
 
 (defsection @polymorph-maths-arithmetic-basic
-    (:title "TODO: Basic Arithmetic Functions")
+    (:title "Basic Arithmetic Functions")
 
   "Ad-hoc polymorphic realisation of basic arithmetic functions: `+`,
 `-`, `*` and `/`."
 
   (+ polymorphic-function)
+
+  "Example of CHARACTER summation:"
+
+  "```cl-transcript
+   (+ #\\a #\\5 #\\t) ; => #\\LATIN_CAPITAL_LETTER_C_WITH_DOT_ABOVE
+
+   (format nil \"~a\" (+ #\\a #\\5 #\\t)) ; => Ċ
+   ```"
+
   (- polymorphic-function)
   (* polymorphic-function)
   (/ polymorphic-function))
 
 
 (defsection @polymorph-maths-arithmetic-updating
-    (:title "TODO: Updating Macros")
+    (:title "Updating Macros")
 
-  "incf, decf, multf, divf are updating macros corresponding to the functions above"
+  "The updating macros corresponding to the functions above: `incf`,
+`decf`, `multf` and `divf`."
 
-  (incf macro))
+  (incf macro)
+
+  "It's possible to update e.g. a `setf`-able place of type CHARACTER
+whien `delta` is of same type too:"
+   
+  "```cl-transcript
+   (incf (car '(#\\1)) #\\2) ; => #\\c
+   ```"
+
+  (decf macro)
+  (multf macro)
+  (divf macro))
 
 
 (defsection @polymorph-maths-eq-and-ineq (:title "TODO: Equality & Inequality")
