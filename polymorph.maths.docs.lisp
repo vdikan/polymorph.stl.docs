@@ -6,6 +6,7 @@
 (defsection @polymorph-maths (:title "Maths")
   (@polymorph-maths-arithmetics section)
   (@polymorph-maths-eq-and-ineq section)
+  (@polymorph-maths-comparisons section)
   (@polymorph-maths-parametric section))
 
 
@@ -78,10 +79,25 @@ whien `delta` is of same type too:"
   (/= polymorphic-function))
 
 
-(defsection @polymorph-maths-parametric (:title "TODO: Parametric-Polymorphic")
+(defsection @polymorph-maths-comparisons (:title "TODO: Order Comparison Functions")
+
+  (< polymorphic-function))
+  
+
+(defsection @polymorph-maths-parametric (:title "Parametric-Polymorphic")
   
   "Functions like `min` and `max` that are realized with parametric polymorphism,
 even if it's more of a convention within this package."
   
   (min polymorphic-function)
-  (max polymorphic-function))
+  (max polymorphic-function)
+
+  "Comparison works for arguments of all types where
+[<][polymorphic-function] order comparison function is defined."
+
+  "```cl-transcript
+   (min \"narrow\" \"thin\" \"fat\" \"thick\") ; => \"fat\"
+
+   (min #\\c #\\, #\\; #\\a) ; => #\\,
+   ```")
+
